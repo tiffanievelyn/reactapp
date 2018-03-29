@@ -1,0 +1,28 @@
+.Header {
+  background: #536270;
+}
+.SideNav-item {
+  height: 90px;
+}
+.SideNav-item a {
+  color: #FFFFFF;
+}
+.SideNav-item a:hover {
+  color: #E70095;
+}
+.SideNav {
+  background-color: #536270;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+}
+.SideNav-user-icon {
+  font-size: 50px;
+}
+.App-logo {
+  font-size: 50px;
+  color: #FFFFFF;
+  animation: App-logo-spin infinite 20s linear;
+  margin: 10px 0px 0px 0px;
+}
