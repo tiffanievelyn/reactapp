@@ -1,39 +1,83 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import { FaGlobe, FaOptinMonster, FaDashboard, FaFileText, FaLightbulbO, FaFolderOpen} from 'react-icons/lib/fa';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem }  from 'react-bootstrap/lib';
+import { Nav, NavItem }  from 'react-bootstrap/lib';
+
+import strings from './_resources/Strings';
+import { NavLink } from 'react-router-dom';
 
 import './styles/Navigation.css';
 
+import { connect } from 'react-redux';
+import { changeToFrench, changeToGerman, changeToEnglish } from './_actions/language-action';
+import { languageSelector } from './_selectors/language-selector';
+
 class Navigation extends Component {
+	constructor(props){
+		super(props);
+
+		this.onChangeToFrench = this.onChangeToFrench.bind(this);
+		this.onChangeToGerman = this.onChangeToGerman.bind(this);
+		this.onChangeToEnglish = this.onChangeToEnglish.bind(this);
+	}
+
+	onChangeToFrench(){
+		this.props.onChangeToFrench();
+	}
+
+	onChangeToGerman(){
+		this.props.onChangeToGerman();
+	}
+
+	onChangeToEnglish(){
+		this.props.onChangeToEnglish();
+	}
+
 	render() {
 		return ( 
 			<Nav style={{width: this.props.width}} className="SideNav" stacked >
 				<FaGlobe className="App-logo"/>
 				<hr width="80%"/>
-				<NavItem className="SideNav-item" href="/home">
+				<NavItem className="SideNav-item"><NavLink to="/userprofile">
 					<FaOptinMonster className="SideNav-user-icon"/>
-					<p>User</p>
-				</NavItem>
-				<NavItem className="SideNav-item" href="/home">
+					<p>{strings.label_user}</p>
+				</NavLink></NavItem>
+				<NavItem className="SideNav-item"><NavLink to="/dashboard">
 					<FaDashboard className="SideNav-user-icon"/>
-					<p>Dashboard</p>
-				</NavItem>
-				<NavItem className="SideNav-item" href="/home">
+					<p>{strings.label_dashboard}</p>
+				</NavLink></NavItem>
+				<NavItem className="SideNav-item"><NavLink to="/responses">
 					<FaFileText className="SideNav-user-icon"/>
-					<p>Responses</p>
-				</NavItem>
-				<NavItem className="SideNav-item" >
+					<p>{strings.label_responses}</p>
+				</NavLink></NavItem>
+				<NavItem className="SideNav-item"><NavLink to="/insights">
 					<FaLightbulbO className="SideNav-user-icon"/>
-					<p>Insights</p>
-				</NavItem>
-				<NavItem className="SideNav-item">
+					<p>{strings.label_insights}</p>
+				</NavLink></NavItem>
+				<NavItem className="SideNav-item"><NavLink to="/sources">
 					<FaFolderOpen className="SideNav-user-icon"/>
-					<p>Sources</p>
-				</NavItem>
+					<p>{strings.label_sources}</p>
+				</NavLink></NavItem>
+				<div className="languageName">
+					<p onClick={this.onChangeToEnglish}>English</p>
+					<p onClick={this.onChangeToFrench}>French</p>
+					<p onClick={this.onChangeToGerman}>German</p>
+					<p>Language: {this.props.language}</p>
+				</div>
 			</Nav>
 		)
 	}
 }
 
-export default Navigation;
+const mapStateToProps = (state,props) => {
+	return{
+		language: languageSelector(state)
+	}
+  }
+
+const mapActionToProps = {
+	onChangeToFrench: changeToFrench,
+	onChangeToGerman: changeToGerman,
+	onChangeToEnglish: changeToEnglish
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Navigation);
