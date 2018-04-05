@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { PageHeader } from 'react-bootstrap';
 import axios from 'axios';
 import strings from './_resources/Strings';
 
@@ -28,7 +29,9 @@ class Sources extends Component {
 
         return(
             <div>
-                <h1>{strings.label_sources}</h1>
+                <PageHeader>
+                    {strings.label_sources}
+                </PageHeader>
                 <button className='button' onClick={this.handleClick}>Click Me</button>
                 <ul>
                     {listSurvey}

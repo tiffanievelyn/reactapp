@@ -14,10 +14,29 @@ import { languageSelector } from './_selectors/language-selector';
 class Navigation extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			lang: 'en'
+		};
 
+		this.OnLanguageSelect = this.OnLanguageSelect.bind(this);
+		this.changeLanguage = this.changeLanguage.bind(this);
 		this.onChangeToFrench = this.onChangeToFrench.bind(this);
 		this.onChangeToGerman = this.onChangeToGerman.bind(this);
 		this.onChangeToEnglish = this.onChangeToEnglish.bind(this);
+	}
+
+	OnLanguageSelect(event){		
+		this.setState({lang: event.target.value});
+	}
+
+	changeLanguage(){
+		if (this.state.lang === 'fr'){
+			this.onChangeToFrench();
+		} else if (this.state.lang === 'en'){
+			this.onChangeToEnglish();
+		} else if (this.state.lang === 'de'){
+			this.onChangeToGerman();
+		}
 	}
 
 	onChangeToFrench(){
@@ -33,6 +52,8 @@ class Navigation extends Component {
 	}
 
 	render() {
+		
+
 		return ( 
 			<Nav style={{width: this.props.width}} className="SideNav" stacked >
 				<FaGlobe className="App-logo"/>
@@ -57,11 +78,17 @@ class Navigation extends Component {
 					<FaFolderOpen className="SideNav-user-icon"/>
 					<p>{strings.label_sources}</p>
 				</NavLink></NavItem>
+
 				<div className="languageName">
-					<p onClick={this.onChangeToEnglish}>English</p>
-					<p onClick={this.onChangeToFrench}>French</p>
-					<p onClick={this.onChangeToGerman}>German</p>
-					<p>Language: {this.props.language}</p>
+					<p>Language:</p>
+					<form onSubmit={this.changeLanguage}>
+						<select value={this.state.lang} onChange={this.OnLanguageSelect}>
+							<option value="en">English</option>
+							<option value="fr">French</option>
+							<option value="de">German</option>
+						</select>
+						<input type="submit" value="Change"/>
+					</form>
 				</div>
 			</Nav>
 		)

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { PageHeader } from 'react-bootstrap';
 import strings from './_resources/Strings';
 
 class UserProfile extends Component{
     render() {
         return (
-            <div className="UserProfile">
-                <h1>{strings.label_user}</h1>                
-            </div>
+            <PageHeader>
+                {strings.label_user}              
+            </PageHeader>
         )
     }
 }

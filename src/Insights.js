@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { PageHeader } from 'react-bootstrap';
 
 import strings from './_resources/Strings';
 
 class Insights extends Component {
     render(){
         return (
-            <div>
-                <h1>{strings.label_insights}</h1>
-            </div>
+            <PageHeader>
+                {strings.label_insights}
+            </PageHeader>
         )
     }
 }
