@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { PageHeader } from 'react-bootstrap';
 import axios from 'axios';
-import strings from './_resources/Strings';
+import strings from '../_resources/Strings';
 
 class Sources extends Component {
     constructor() {

@@ -6,12 +6,12 @@ import strings from './_resources/Strings';
 import { connect } from 'react-redux';
 import { languageSelector } from './_selectors/language-selector';
 
-import Navigation from './Navigation';
-import Dashboard from './Dashboard';
-import Responses from './Responses';
-import Insights from './Insights';
-import Sources from './Sources';
-import UserProfile from './UserPofile';
+import Navigation from './Navigation/Navigation';
+import Dashboard from './Dashboard/Dashboard';
+import Responses from './Responses/Responses';
+import Insights from './Insights/Insights';
+import Sources from './Sources/Sources';
+import UserProfile from './User/UserProfile';
 
 class App extends Component {
 	render() {

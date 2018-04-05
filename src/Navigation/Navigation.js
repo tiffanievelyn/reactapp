@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 import { FaGlobe, FaOptinMonster, FaDashboard, FaFileText, FaLightbulbO, FaFolderOpen} from 'react-icons/lib/fa';
 import { Nav, NavItem }  from 'react-bootstrap/lib';
 
-import strings from './_resources/Strings';
-import { NavLink } from 'react-router-dom';
-
-import './styles/Navigation.css';
-
-import { connect } from 'react-redux';
-import { changeToFrench, changeToGerman, changeToEnglish } from './_actions/language-action';
-import { languageSelector } from './_selectors/language-selector';
+import './Navigation.css';
+import strings from '../_resources/Strings';
+import { changeToFrench, changeToGerman, changeToEnglish } from '../_actions/language-action';
+import { languageSelector } from '../_selectors/language-selector';
 
 class Navigation extends Component {
 	constructor(props){
