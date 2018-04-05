@@ -1,6 +1,10 @@
 import { FRENCH, GERMAN, ENGLISH } from '../_actions/language-action';
 
-export default function languageReducer(state='', {type, payload}){
+const initialState = {
+    language:'en'
+}
+
+export default function languageReducer(state=initialState.language, {type, payload}){
     switch(type){
         case FRENCH:
             return payload.language;
