@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { PageHeader } from 'react-bootstrap';
+import strings from '../_resources/Strings';
 
-import strings from './_resources/Strings';
-
-class Responses extends Component{
-    render() {
+class Insights extends Component {
+    render(){
         return (
             <PageHeader>
-                {strings.label_responses}
+                {strings.label_insights}
             </PageHeader>
         )
     }
 }
 
-export default Responses;
+export default Insights;
