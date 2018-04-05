@@ -12,6 +12,7 @@ import Responses from './Responses/Responses';
 import Insights from './Insights/Insights';
 import Sources from './Sources/Sources';
 import UserProfile from './User/UserProfile';
+import Settings from './Settings/Settings';
 
 class App extends Component {
 	render() {
@@ -30,6 +31,7 @@ class App extends Component {
 							<Route path="/responses" component={Responses}/>
 							<Route path="/insights" component={Insights}/>
 							<Route path="/sources" component={Sources}/>
+							<Route path="/settings" component={Settings}/>
 						</div>
 					</div>
 				</HashRouter>
