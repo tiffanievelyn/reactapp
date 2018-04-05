@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { FaGlobe, FaOptinMonster, FaDashboard, FaFileText, FaLightbulbO, FaFolderOpen, FaCog, FaSmileO, FaQuestionCircle} from 'react-icons/lib/fa';
 import { Nav, NavItem }  from 'react-bootstrap/lib';
-
 import './Navigation.css';
 import strings from '../_resources/Strings';
 

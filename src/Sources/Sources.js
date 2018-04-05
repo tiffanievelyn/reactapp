@@ -38,14 +38,12 @@ class Sources extends Component {
 
     render() {
         let listSurvey;
-
         if (this.props.surveyVisibility){
             listSurvey = this.state.surveyList.map(survey => (
                 <li key={survey.surveyId}>
                     {survey.name} {survey.creationDate}
                 </li>
-            ))
-            
+            ))            
         }
 
         return(
