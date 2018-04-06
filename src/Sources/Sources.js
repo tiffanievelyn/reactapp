@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { PageHeader } from 'react-bootstrap';
+import { PageHeader, Table } from 'react-bootstrap';
 import axios from 'axios';
 import strings from '../_resources/Strings';
 
 import { connect } from 'react-redux';
-import { showSurvey, hideSurvey } from '../_actions/survey-action.js';
+import { showSurvey, hideSurvey, addSurvey } from '../_actions/survey-action.js';
 
 import { surveyVisibilitySelector } from '../_selectors/survey-selector';
 
@@ -22,7 +22,11 @@ class Sources extends Component {
     }
 
     onShowSurvey() {
+        for (var i=0; i < this.state.surveyList.length ; i++){
+            this.props.addSurvey(this.state.surveyList[i]);
+        }
         this.props.onShowSurvey();
+
     }
 
     onHideSurvey() {
@@ -40,9 +44,12 @@ class Sources extends Component {
         let listSurvey;
         if (this.props.surveyVisibility){
             listSurvey = this.state.surveyList.map(survey => (
-                <li key={survey.surveyId}>
-                    {survey.name} {survey.creationDate}
-                </li>
+                <tr>
+                <td>{survey.surveyId}</td>
+                <td>{survey.name}</td>
+                <td>{survey.creationDate}</td>
+                <td>Delete | Edit</td>
+                </tr>
             ))            
         }
 
@@ -54,9 +61,21 @@ class Sources extends Component {
                 <p>Visibility: {this.props.surveyVisibility + ''}</p>
                 <button className='button' onClick={this.handleClick}>Click Me</button>
                 <button className='button' onClick={this.onHideSurvey}>Hide</button>
-                <ul>
-                    {listSurvey}
-                </ul>
+                <Table striped bordered condensed hover>
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {listSurvey}
+                        
+                    </tbody>
+                </Table>
+                
             </div>
         )
     }
@@ -70,7 +89,8 @@ const mapStateToProps = (state,props) => {
 
 const mapActionToProps = {
 	onShowSurvey: showSurvey,
-	onHideSurvey: hideSurvey
+    onHideSurvey: hideSurvey,
+    addSurvey:addSurvey
 }
 
 export default connect(mapStateToProps, mapActionToProps)(Sources);

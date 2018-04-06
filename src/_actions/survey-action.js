@@ -1,5 +1,7 @@
-export const SHOW=true;
-export const HIDE=false;
+export const SHOW="survey-visibility:true";
+export const HIDE="survey-visibility:false";
+
+export const ADD_SURVEY="survey:add";
 
 export function showSurvey(){
     return {
@@ -15,6 +17,18 @@ export function hideSurvey(){
         type:HIDE,
         payload: {
             visibility: false
+        }
+    }
+}
+
+export function addSurvey(survey){
+    console.log(survey);
+    return {
+        type:ADD_SURVEY,
+        payload: {
+            id: survey.surveyId,
+            name: survey.name,
+            creation: survey.creationDate
         }
     }
 }

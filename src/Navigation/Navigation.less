@@ -1,23 +1,10 @@
 @import '../_resources/color.less';
 
-.Header {
-    background: @interpris-dark-grey;
-}
-
-.SideNav-item{
-    height: 90px;
-}
-
-.SideNav-item-settings {
-    height:50px;
-}
-
-.SideNav-item a, .SideNav-item-settings a  {
+.App-logo {
+    font-size:50px;
     color:@interpris-white;
-}
-
-.SideNav-item a:hover, .SideNav-item-settings a:hover {
-    color:@interpris-fuscia;
+    animation: App-logo-spin infinite 20s linear;
+    margin: 10px 0px 0px 0px;
 }
 
 .SideNav {
@@ -27,25 +14,30 @@
     top:0;
     bottom:0;
     text-align: center;
+    overflow-y: auto;
 }
 
-.SideNav-user-icon {
+.SideNav-item {
+    color:@interpris-white;
+    padding:5px;
+}
+
+.SideNav-item:hover {
+    transition: background-color .5s;
+    background-color:white;
+    color:@interpris-fuscia;
+}
+
+.SideNav-big-icon {
     font-size:50px;
 }
 
-.SideNav-setting-icon {
+.SideNav-small-icon {
     font-size:30px;
     animation: App-logo-spin infinite 5s linear;
 }
 
-.App-logo {
-    font-size:50px;
+.SideNavFooter {
     color:@interpris-white;
-    animation: App-logo-spin infinite 20s linear;
-    margin: 10px 0px 0px 0px;
-}
-
-.Settings {
-    bottom:0;
-    position: absolute;
+    padding:5px;
 }

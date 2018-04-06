@@ -1,7 +1,8 @@
 import { SHOW, HIDE } from '../_actions/survey-action';
+import { ADD_SURVEY } from '../_actions/survey-action';
 
 const initialState = {
-    visibility: HIDE,
+    visibility: false,
     surveylist: []
 }
 
@@ -16,8 +17,20 @@ function visibilityReducer(state, {type, payload}){
     }
 }
 
-function listReducer(state, {type, payload}){
-    return state;
+function listReducer(state=[], {type, payload}){
+    switch(type){
+        case ADD_SURVEY:
+            return [
+                ...state,
+                {
+                    id: payload.id,
+                    name: payload.name,
+                    creation: payload.creation
+                }
+            ]
+        default:
+            return state;
+    }
 }
 
 export default function surveyReducer(state=initialState, {type, payload}){

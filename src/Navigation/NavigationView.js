@@ -1,45 +1,61 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaGlobe, FaOptinMonster, FaDashboard, FaFileText, FaLightbulbO, FaFolderOpen, FaCog, FaSmileO, FaQuestionCircle} from 'react-icons/lib/fa';
-import { Nav, NavItem }  from 'react-bootstrap/lib';
 import './Navigation.css';
 import strings from '../_resources/Strings';
 
 export const NavigationView = (props) => {
     return (
-        <Nav style={{width: props.width}} className="SideNav" stacked >
+        <div style={{width: props.width}} className="SideNav">
             <FaGlobe className="App-logo"/>
             <hr width="80%"/>
-            <NavItem className="SideNav-item"><NavLink to="/userprofile">
-                <FaOptinMonster className="SideNav-user-icon"/>
-                <p>{strings.label_user}</p>
-            </NavLink></NavItem>
-            <NavItem className="SideNav-item"><NavLink to="/dashboard">
-                <FaDashboard className="SideNav-user-icon"/>
-                <p>{strings.label_dashboard}</p>
-            </NavLink></NavItem>
-            <NavItem className="SideNav-item"><NavLink to="/responses">
-                <FaFileText className="SideNav-user-icon"/>
-                <p>{strings.label_responses}</p>
-            </NavLink></NavItem>
-            <NavItem className="SideNav-item"><NavLink to="/insights">
-                <FaLightbulbO className="SideNav-user-icon"/>
-                <p>{strings.label_insights}</p>
-            </NavLink></NavItem>
-            <NavItem className="SideNav-item"><NavLink to="/sources">
-                <FaFolderOpen className="SideNav-user-icon"/>
-                <p>{strings.label_sources}</p>
-            </NavLink></NavItem>
+            <NavLink to="/userprofile">
+                <div className="SideNav-item">
+                    <FaOptinMonster className="SideNav-big-icon"/>
+                    <p>{strings.label_user}</p>
+                </div>
+            </NavLink>            
+            <NavLink to="/dashboard">
+                <div className="SideNav-item">
+                    <FaDashboard className="SideNav-big-icon"/>
+                    <p>{strings.label_dashboard}</p>
+                </div>
+            </NavLink>
+            <NavLink to="/responses">
+                <div className="SideNav-item">
+                    <FaFileText className="SideNav-big-icon"/>
+                    <p>{strings.label_responses}</p>
+                </div>
+            </NavLink>            
+            <NavLink to="/insights">
+                <div className="SideNav-item">
+                    <FaLightbulbO className="SideNav-big-icon"/>
+                    <p>{strings.label_insights}</p>
+                </div>
+            </NavLink>
+            <NavLink to="/sources">
+                <div className="SideNav-item">
+                    <FaFolderOpen className="SideNav-big-icon"/>
+                    <p>{strings.label_sources}</p>
+                </div>
+            </NavLink>
             <hr width="80%"/>
-            <NavItem className="SideNav-item-settings"><NavLink to="/settings">
-                <FaCog className="SideNav-setting-icon"/>
-            </NavLink></NavItem>
-            <NavItem className="SideNav-item-settings">
-                <FaSmileO className="SideNav-setting-icon"/>
-            </NavItem>
-            <NavItem className="SideNav-item-settings">
-                <FaQuestionCircle className="SideNav-setting-icon"/>
-            </NavItem>
-        </Nav>  
+            <NavLink to="/settings">
+                <div className="SideNav-item">
+                    <FaCog className="SideNav-small-icon"/>
+                </div>
+            </NavLink>
+            <NavLink to="">
+                <div className="SideNav-item">
+                    <FaSmileO className="SideNav-small-icon"/>
+                </div>
+            </NavLink>
+            <NavLink to="">
+                <div className="SideNav-item">
+                    <FaQuestionCircle className="SideNav-small-icon"/>
+                </div>
+            </NavLink>
+        </div>
+
     )
 }
