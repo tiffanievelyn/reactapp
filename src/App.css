@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.content {
+  background-color: #DDDDDD;
+  width:92%;
+  position: absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  text-align: left;
+  padding:20px;
+}

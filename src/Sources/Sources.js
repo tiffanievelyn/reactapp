@@ -3,6 +3,7 @@ import { PageHeader, Table } from 'react-bootstrap';
 import axios from 'axios';
 import strings from '../_resources/Strings';
 
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { showSurvey, hideSurvey, addSurvey } from '../_actions/survey-action.js';
 
@@ -58,9 +59,16 @@ class Sources extends Component {
                 <PageHeader>
                     {strings.label_sources}
                 </PageHeader>
+                <form>
+                    <FormGroup controlId="formControlsFile">
+                        <ControlLabel>File (does nothing)</ControlLabel>
+                        <FormControl type="file" />
+                    </FormGroup>
+                </form>
                 <p>Visibility: {this.props.surveyVisibility + ''}</p>
                 <button className='button' onClick={this.handleClick}>Click Me</button>
                 <button className='button' onClick={this.onHideSurvey}>Hide</button>
+                
                 <Table striped bordered condensed hover>
                     <thead>
                         <tr>

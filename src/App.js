@@ -25,7 +25,7 @@ class App extends Component {
 						<div>
 							<Navigation width='8%'/>
 						</div>
-						<div className="content" style={{width:'92%', right:0, top:0, bottom:0, position:'absolute', backgroundColor:'#DDDDDD'}}>			
+						<div className="content">			
 							<Route path="/userprofile" component={UserProfile}/>		
 							<Route path="/dashboard" component={Dashboard}/>
 							<Route path="/responses" component={Responses}/>

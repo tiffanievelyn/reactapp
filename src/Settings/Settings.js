@@ -15,9 +15,6 @@ class Settings extends Component {
 
 		this.OnLanguageSelect = this.OnLanguageSelect.bind(this);
 		this.changeLanguage = this.changeLanguage.bind(this);
-		this.onChangeToFrench = this.onChangeToFrench.bind(this);
-		this.onChangeToGerman = this.onChangeToGerman.bind(this);
-		this.onChangeToEnglish = this.onChangeToEnglish.bind(this);
     }
 
     OnLanguageSelect(event){		
@@ -26,26 +23,13 @@ class Settings extends Component {
 
 	changeLanguage(){
 		if (this.state.lang === 'fr'){
-			this.onChangeToFrench();
+			this.props.onChangeToFrench();
 		} else if (this.state.lang === 'en'){
-			this.onChangeToEnglish();
+			this.props.onChangeToEnglish();
 		} else if (this.state.lang === 'de'){
-			this.onChangeToGerman();
+			this.props.onChangeToGerman();
 		}
 	}
-
-	onChangeToFrench(){
-		this.props.onChangeToFrench();
-	}
-
-	onChangeToGerman(){
-		this.props.onChangeToGerman();
-	}
-
-	onChangeToEnglish(){
-		this.props.onChangeToEnglish();
-	}
-
 
     render(){
         return(
@@ -54,10 +38,6 @@ class Settings extends Component {
                     {strings.label_settings}
                 </PageHeader>
                 <form onSubmit={this.changeLanguage}>
-                    <FormGroup controlId="formControlsFile">
-                        <ControlLabel>File (does nothing)</ControlLabel>
-                        <FormControl type="file" />
-                    </FormGroup>
                     <FormGroup controlId="formControlsSelect">
                         <ControlLabel>{strings.label_selectLanguage}</ControlLabel>
                         <FormControl componentClass="select" placeholder="select" value={this.props.lang} onChange={this.OnLanguageSelect}>
