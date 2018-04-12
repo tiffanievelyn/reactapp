@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import { PageHeader, Table } from 'react-bootstrap';
-import axios from 'axios';
 import strings from '../_resources/Strings';
 
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { showSurvey, hideSurvey, addSurvey } from '../_actions/survey-action.js';
 
@@ -14,12 +13,23 @@ class Sources extends Component {
         super(props)
         this.state = {
             surveyVisibility: false,
-            surveyList: []
+            surveyList: [],
+            file: ''
         }
 
+        this.fileChange = this.fileChange.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.onShowSurvey = this.onShowSurvey.bind(this);
         this.onHideSurvey = this.onHideSurvey.bind(this);
+    }
+
+    fileChange(event) {
+        this.setState({file: event.target.value});
+    }
+
+    uploadFile() {
+        console.log(this.state.file);
     }
 
     onShowSurvey() {
@@ -35,17 +45,17 @@ class Sources extends Component {
     }
 
     handleClick() {
-        axios.get('http://localhost:63290/api/surveys').then(response => {
-            this.setState({surveyList: response.data});
+        fetch('http://localhost:63290/api/surveys').then(response => response.json()).then((responseJson) => {
+            this.setState({surveyList: responseJson});
             this.onShowSurvey();
-        })
+        }) 
     }
 
     render() {
         let listSurvey;
         if (this.props.surveyVisibility){
             listSurvey = this.state.surveyList.map(survey => (
-                <tr>
+                <tr key={survey.surveyId} >
                 <td>{survey.surveyId}</td>
                 <td>{survey.name}</td>
                 <td>{survey.creationDate}</td>
@@ -59,11 +69,12 @@ class Sources extends Component {
                 <PageHeader>
                     {strings.label_sources}
                 </PageHeader>
-                <form>
+                <form onSubmit={this.uploadFile}>
                     <FormGroup controlId="formControlsFile">
                         <ControlLabel>File (does nothing)</ControlLabel>
-                        <FormControl type="file" />
+                        <FormControl type="file" onChange={this.fileChange} />
                     </FormGroup>
+                    <Button type="submit">{strings.action_saveChanges}</Button>
                 </form>
                 <p>Visibility: {this.props.surveyVisibility + ''}</p>
                 <button className='button' onClick={this.handleClick}>Click Me</button>

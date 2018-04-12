@@ -40,7 +40,7 @@ class Settings extends Component {
                 <form onSubmit={this.changeLanguage}>
                     <FormGroup controlId="formControlsSelect">
                         <ControlLabel>{strings.label_selectLanguage}</ControlLabel>
-                        <FormControl componentClass="select" placeholder="select" value={this.props.lang} onChange={this.OnLanguageSelect}>
+                        <FormControl componentClass="select" placeholder="select" value={this.state.lang} onChange={this.OnLanguageSelect}>
                             <option value="en">{strings.language_english}</option>
                             <option value="fr">{strings.language_french}</option>
                             <option value="de">{strings.language_german}</option>

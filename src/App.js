@@ -16,6 +16,7 @@ import Settings from './Settings/Settings';
 
 class App extends Component {
 	render() {
+		console.log(this.props.language);
 		strings.setLanguage(this.props.language);
 		return (
 			//notes: to implement side navigation, create a grid?
@@ -23,7 +24,7 @@ class App extends Component {
 				<HashRouter>
 					<div>
 						<div>
-							<Navigation width='8%'/>
+							<Navigation className="navigation" width='8%' lang={this.props.language}/>
 						</div>
 						<div className="content">			
 							<Route path="/userprofile" component={UserProfile}/>		

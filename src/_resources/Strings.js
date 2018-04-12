@@ -12,7 +12,16 @@ let strings = new LocalizedStrings({
         language_german:"German",
         language_french:"French",
         label_selectLanguage:"Select language",
-        action_saveChanges:"Save changes"
+        action_saveChanges:"Save changes",
+        label_feedback:"Feedback",
+        label_feedbackTopic:"Select topic",
+        select_feedbackFeature:"Feature request",
+        select_feedbackBug:"Report a bug",
+        select_feedbackOther:"Other",
+        label_description:"Description",
+        label_descriptionDetail:"Enter details...",
+        action_feedbackSubmit:"Submit",
+        action_close:"Close"
     },
     de:{
         label_user:"Benutzer",
@@ -25,7 +34,16 @@ let strings = new LocalizedStrings({
         language_german:"Deutsche",
         language_french:"Französisch",
         label_selectLanguage:"Sprache auswählen",
-        action_saveChanges:"Änderungen speichern"
+        action_saveChanges:"Änderungen speichern",
+        label_feedback:"Feedback",
+        label_feedbackTopic:"Wählen Sie ein Thema aus",
+        select_feedbackFeature:"Featureanfrage",
+        select_feedbackBug:"Melde einen technischen Fehler",
+        select_feedbackOther:"Andere",
+        label_description:"Beschreibung",
+        label_descriptionDetail:"Geben Sie Details ein ...",
+        action_feedbackSubmit:"Einreichen",
+        action_close:"Schließen"
     },
     fr:{
         label_user:"Usager",
@@ -38,9 +56,17 @@ let strings = new LocalizedStrings({
         language_german:"Allemand",
         language_french:"Français",
         label_selectLanguage:"Choisir la langue",
-        action_saveChanges:"Sauvegarder les modifications"
-    }
-    
+        action_saveChanges:"Sauvegarder les modifications",
+        label_feedback:"Retour d'information",
+        label_feedbackTopic:"Sélectionnez un sujet",
+        select_feedbackFeature:"Demande de fonctionnalité",
+        select_feedbackBug:"Signaler un bug",
+        select_feedbackOther:"Autre",
+        label_description:"La description",
+        label_descriptionDetail:"Entrez les détails ...",
+        action_feedbackSubmit:"Soumettre",
+        action_close:"Fermer"
+    }    
 })
 
 export default strings;
